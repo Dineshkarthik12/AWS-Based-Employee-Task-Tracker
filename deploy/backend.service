@@ -1,0 +1,13 @@
+[Unit]
+Description=Uvicorn instance to serve Employee Task Tracker FastAPI Backend
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/path/to/employee-task-tracker/backend
+Environment="PATH=/path/to/employee-task-tracker/backend/venv/bin"
+ExecStart=/path/to/employee-task-tracker/backend/venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+
+[Install]
+WantedBy=multi-user.target
